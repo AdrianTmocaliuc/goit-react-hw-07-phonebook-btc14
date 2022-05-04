@@ -1,4 +1,4 @@
-import Button from "components/Button/Button";
+import { Button } from "components/Button/Button";
 import s from "./Item.module.scss";
 import PropTypes from "prop-types";
 // import { actionDeleteContacts } from "redux/contacts/contacts-actions";
