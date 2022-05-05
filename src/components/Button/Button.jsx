@@ -5,19 +5,23 @@ import PropTypes from "prop-types";
 import { TailSpin } from "react-loader-spinner";
 
 import { connect } from "react-redux";
+import React from "react";
 
 class Button extends Component {
   render() {
-    const { title, id, onClick, selected } = this.props;
+    const { title, id, onClick, selected, type = "button" } = this.props;
+    const checkedButton =
+      this?.props?.loading && selected === id && type === "button";
     return (
       <>
         <button
-          disabled={this?.props?.loading && selected === id ? true : false}
+          disabled={checkedButton ? true : false}
           className={s.button}
           id={id}
+          type={type}
           onClick={onClick}
         >
-          {this?.props?.loading && selected === id ? (
+          {checkedButton ? (
             <TailSpin height="15" width="15" color="red" ariaLabel="loading" />
           ) : (
             title
